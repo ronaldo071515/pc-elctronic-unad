@@ -1,0 +1,32 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+}
+
+/* calculadora */
+
+#calculadora {
+	width: 40em;
+	margin-bottom: 2em;
+	margin-left: 3em;
+}
+
+#calculadora>span {
+	display: block;
+	margin-bottom: 0.3em;
+	width: 100%;
+}
+
+#calculadora>span label {
+	display: inline-block;
+	width: 30%;
+}
+
+#calculadora>span input {
+	width: 5em;
+}
+
+#resultados {
+	margin-left: 3em;
+}
