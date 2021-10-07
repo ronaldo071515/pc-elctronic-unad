@@ -35,40 +35,56 @@
 
 	<div class="container mt-5">
 		<div class="d-flex d-flex justify-content-center">
-			<div class="row">
-				<div class="col-md-9">
-					<div class="card">
-						<div class="card-body">
-							<h5 class="card-title mb-2 text-center">Calculadora Tienda</h5>
-							<hr>
-							<form id="calculadora" name="calculadora" action="#">
-								<div class="mb-3">
-									<label for="vcompra" class="form-label">Valor de la Compra</label>
-									<input type="number" class="form-control" name="vcompra" min="0" id="vcompra">
-								</div>
-								<div class="mb-3">
-									<label for="putilidad" class="form-label">% Utilidad o Ganancia</label>
-									<input type="number" class="form-control" name="putilidad" min="0" max="100" id="putilidad">
-								</div>
-								<div class="mb-3">
-									<label for="piva" class="form-label">% IVA</label>
-									<input type="number" class="form-control" name="piva" min="0" max="100" id="piva">
-								</div>
-								<div class="d-grid gap-2">
-									<input class="btn btn-outline-success btn-block" type="button" value="Calcular" id="btnCalcular" name="btnCalcular">
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div id="resultados" class="col-md-3">
 
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title mb-2 text-center">Conversor</h5>
+					<hr>
+					<form id="convertidorForm">
+						<div class="row">
+							<div class="col-6">
+								<div class="mb-3">
+									<label for="valor" class="form-label">Ingresa Valor</label>
+									<input type="number" class="form-control" name="valor" value="" id="valor">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="mb-3">
+									<label for="tipo" class="form-label">Elije el tipo</label>
+									<select class="form-select" name="tipo" id="tipo" aria-label="Default select example">
+										<option selected>Selecciona</option>
+										<option value="b">Byte</option>
+										<option value="k">KiloByte</option>
+										<option value="m">MegaByte</option>
+										<option value="g">GigaByte</option>
+										<option value="t">TeraByte</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="mb-3">
+									<label for="convertir" class="form-label">Convertir a: </label>
+									<select class="form-select" name="convertir" id="convertir" aria-label="Default select example">
+										<option selected>Selecciona</option>
+										<option value="b">Byte</option>
+										<option value="k">KiloByte</option>
+										<option value="m">MegaByte</option>
+										<option value="g">GigaByte</option>
+										<option value="t">TeraByte</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="d-grid gap-2">
+							<input class="btn btn-outline-success btn-block" type="button" value="Convertir" id="btnConvertir" name="btnConvertir">
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<script src="assets/js/calculadora-producto.js"></script>
+	<script src="assets/js/convertidor.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </body>
 </html>

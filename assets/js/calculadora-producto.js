@@ -20,10 +20,10 @@ const calcularValores = () => {
 
 	document.getElementById("resultados").innerHTML =
 		`
-		<div class="alert alert-primary" role="alert">
+		<div class="ml-3 alert alert-primary" role="alert">
 		Valor de la venta: ${Number(Math.round(vventa)).toLocaleString("es-CO")}
 		</div>
-		<div class="alert alert-primary" role="alert">
+		<div class="ml-3 alert alert-primary" role="alert">
 		Ganancia: ${Number(Math.round(vganancia)).toLocaleString("es-CO")}
 		</div>
 		`;
