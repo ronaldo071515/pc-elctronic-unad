@@ -1,4 +1,6 @@
-const calcularValores = () => {
+const calcularValores = (e) => {
+	e.preventDefault();
+	
 	let vcompra = document.calculadora.vcompra.value;
 	let putilidad = document.calculadora.putilidad.value;
 	let piva = document.calculadora.piva.value;
