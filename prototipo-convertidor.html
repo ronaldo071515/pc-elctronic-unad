@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Convertidor de unidades</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <!-- El formulario mostrado aquí es solo un ejemplo y está implementado para efectos de prueba. -->
+    <!-- En el documento se requiere la presencia de un elemento de texto con id="resultado" en donde se mostrará
+    el resultado del cálculo. Si no se establece previamente dentro de la fase de diseño, el script automáticamente
+    lo añadirá después del formulario. -->
+    <form name="convertidor" id="convertidorForm" action="#">
+        <input name="valor" placeholder="cantidad">
+        <select name="tipo">
+                <option value="b">Byte</option>
+                <option value="k">Kilobyte</option>
+                <option value="m">Megabyte</option>
+                <option value="g">GigaByte</option>
+                <option value="t">Terabyte</option>
+            </select>
+        <select name="convertir">
+                <option value="b">Byte</option>
+                <option value="k">Kilobyte</option>
+                <option value="m">Megabyte</option>
+                <option value="g">GigaByte</option>
+                <option value="t">Terabyte</option>
+                <option value="p">Pet</option> <!-- Elemento erróneo para efectos de prueba -->
+        </select>
+        <input type="button" name="btnConvertir" value="convertir">
+
+    </form>
+
+    <script>
+        var formulario = document.getElementById("convertidorForm");
+        var resultado = document.getElementById("resultado");
+        if (resultado === null) {
+            resultado = document.createElement("span");
+            formulario.after(resultado);
+        }
+
+        //La clase que se añadirá al elemento resultado cuando se produzca un error.
+        const CLASE_ERROR_CSS = "alert-danger";
+
+        const FACTOR = {
+            "b": 1,
+            "k": 1024,
+            "m": 1048576,
+            "g": 1073741824,
+            "t": 1099511627776
+        };
+
+        function convertir() {
+            let valor = formulario.valor.value;
+            let uOrigen = formulario.tipo.value;
+            let uDestino = formulario.convertir.value;
+
+            if (valor < 0) {
+                resultado.innerText = "No se admiten valores negativos.";
+                resultado.classList.add(CLASE_ERROR_CSS);
+                return;
+            }
+
+            if (uOrigen === uDestino) {
+                resultado.innerText = "Por favor, seleccione diferentes unidades de conversión.";
+                resultado.classList.add(CLASE_ERROR_CSS);
+                return;
+            }
+
+            let calculo = valor * FACTOR[uOrigen] / FACTOR[uDestino];
+            if (!isNaN(calculo)) {
+                resultado.innerText = `Resultado ${Number(calculo).toLocaleString("es-CO")}`;
+                resultado.classList.remove(CLASE_ERROR_CSS);
+            } else {
+                resultado.innerText = "Error en los parámetros.";
+                resultado.classList.add(CLASE_ERROR_CSS);
+            }
+        }
+        formulario.btnConvertir.addEventListener("click", convertir);
+    </script>
+</body>
+
+</html>
