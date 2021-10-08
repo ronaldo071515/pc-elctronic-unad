@@ -4,7 +4,7 @@
 
 ### Presentado por:
 
-Ronaldo Torres Cáceres
-Isaacc Sánchez Mancera
-Wilmer Hernández Jiménez
-Juan David Renteria
+* Ronaldo Torres Cáceres
+* Isaacc Sánchez Mancera
+* Wilmer Hernández Jiménez
+* Juan David Renteria
