@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 const calcularValores = () => {
     let vcompra = document.calculadora.vcompra.value;
     let putilidad = document.calculadora.putilidad.value;
     let piva = document.calculadora.piva.value;
+=======
+const calcularValores = (e) => {
+	e.preventDefault();
+	
+	let vcompra = document.calculadora.vcompra.value;
+	let putilidad = document.calculadora.putilidad.value;
+	let piva = document.calculadora.piva.value;
+>>>>>>> 6707aeff5f05476b81938b81e02afba3d72b654d
 
 
     //Por si acaso, en navegadores viejos

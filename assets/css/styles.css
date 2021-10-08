@@ -3,3 +3,8 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #ffffff;
 }
+
+img {
+	max-width: 100%;
+	display: block;
+}
