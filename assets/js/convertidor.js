@@ -30,10 +30,27 @@ const convertir = () => {
 
 	let calculo = valor * FACTOR[uOrigen] / FACTOR[uDestino];
 	if (!isNaN(calculo)) {
+		let rta;
+		if (uDestino === 'b') {
+			rta = 'Bytes';
+		}
+		if (uDestino === 'k') {
+			rta = 'KiloBytes';
+		}
+		if (uDestino === 'm') {
+			rta = 'MegaBytes';
+		}
+		if (uDestino === 'g') {
+			rta = 'GigaBytes';
+		}
+		if (uDestino === 't') {
+			rta = 'TeraBytes';
+		}
+
 		Swal.fire({
 			position: 'top-end',
 			icon: 'success',
-			title: `Resultado ${Number(calculo).toLocaleString("es-CO")}`,
+			title: `Resultado ${Number(calculo).toLocaleString("es-CO")}, ${ rta }`,
 			showConfirmButton: true,
 		});
 	} else {
