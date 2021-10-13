@@ -4,9 +4,10 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/normalize.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/css/styles.css">
-	<title>Sitios Web | UNAD</title>
+	<title>Sitios Web | UNAD | Conversor</title>
 	<link rel="shortcut icon" href="assets/img/favicon.ico">
 </head>
 <body class="fondo">
@@ -24,9 +25,15 @@
 					  <li><a class="dropdown-item" href="conversor.html">Conversor</a></li>
 					</ul>
 				</li>
-			    <li class="nav-item">
-			      <a class="nav-link text-white" href="#">Inventario</a>
-			    </li>
+				<li class="nav-item dropdown">
+					<a class="nav-link text-white dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown">
+					  Inventario
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					  <li><a class="dropdown-item" href="pages/inventario/crear-producto.html">Crear Producto</a></li>
+					  <li><a class="dropdown-item" href="conversor.html">Actualizar Producto</a></li>
+					</ul>
+				</li>
 			    <li class="nav-item">
 			      <a class="nav-link text-white" href="#">Administrador</a>
 			    </li>
