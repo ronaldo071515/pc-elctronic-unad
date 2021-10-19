@@ -7,14 +7,14 @@
 	<link rel="stylesheet" href="../../assets/css/normalize.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 	<link rel="stylesheet" href="../../assets/css/styles.css">
-	<title>Sitios Web | UNAD | Inventario</title>
-	<link rel="shortcut icon" href="../../assets/img/favicon.ico"> 
+	<title>Sitios Web | UNAD</title>
+	<link rel="shortcut icon" href="assets/img/favicon.ico"> 
 </head>
 <body class="fondo">
 
 	<nav class="navbar navbar-dark bg-dark justify-content-end">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">PC'S ELECTRONICS</a>
+        <a class="navbar-brand" href="../../index.html">PC'S ELECTRONICS</a>
         <ul class="nav">
 			<li class="nav-item dropdown">
 				<a class="nav-link text-white dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown">
@@ -42,55 +42,26 @@
 	</nav>
 
 	<div class="container mt-5">
-		<div class="card bg-light shadow-lg">
-			<div class="card-body">
-				<h5 class="card-title mb-2 text-center">Registro Producto</h5>
-				<hr>
-				<form id="">
-					<div class="row">
-						<div class="col-6">
+		<div class="row">
+			<div class="col-3">
+				<div class="card">
+					<h5 class="card-title mt-3 text-center">Buscar Producto</h5>
+					<hr>
+					<div class="card-body">
+						<form id="buscar-producto" name="buscar-producto" action="#">
 							<div class="mb-3">
-								<label for="codigo" class="form-label">Código Producto</label>
-								<input type="number" class="form-control" name="codigo" id="codigo" aria-required="true">
+								<label for="codio-producto" class="form-label">Código Producto</label>
+								<input type="number" class="form-control" name="codio-producto" min="0" id="codio-producto">
 							</div>
-						</div>
-						<div class="col-6">
-							<div class="mb-3">
-								<label for="nombre" class="form-label">Nombre Producto</label>
-								<input type="text" class="form-control" name="nombre" id="nombre" aria-required="true">
+							<div class="d-grid gap-2">
+								<input class="btn btn-outline-success btn-block" type="button" value="Buscar Producto" id="" name="">
 							</div>
-						</div>
-						<div class="col-4">
-							<div class="mb-3">
-								<label for="marca" class="form-label">Marca del Producto</label>
-								<input type="text" class="form-control" name="marca" id="marca">
-							</div>
-						</div>
-						<div class="col-4">
-							<div class="mb-3">
-								<label for="precio_compra" class="form-label">Precio de Compra</label>
-								<input type="number" class="form-control" name="precio_compra" id="precio_compra">
-							</div>
-						</div>
-						<div class="col-4">
-							<div class="mb-3">
-								<label for="cantidad" class="form-label">Cantidad Comprada</label>
-								<input type="number" class="form-control" name="cantidad" id="cantidad">
-							</div>
-						</div>
+						</form>
 					</div>
-					<div class="d-grid gap-2">
-						<input class="btn btn-outline-success btn-block" type="button" value="Registrar Producto" id="" name="">
-					</div>
-				</form>
+				</div>
 			</div>
-		</div>
-
-		<div class="mt-5 mb-5">
-			<div class="card">
-				<h5 class="card-title mt-3 text-center">Productos</h5>
-				<hr>
-				<div class="card-body">
+			<div class="col-9">
+				<div class="card">
 					<table class="table">
 						<thead>
 							<tr>
@@ -99,6 +70,7 @@
 								<th scope="col">Marca</th>
 								<th scope="col">Precio Compra</th>
 								<th scope="col">Cantidad Comprada</th>
+								<th scope="col">Opciones</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -108,13 +80,16 @@
 								<td>hp</td>
 								<td>$ 30.000</td>
 								<td>100</td>
+								<td>
+									<a href="">Editar</a>
+									<a href="">ELiminar</a>
+								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-			  </div>
+			</div>
 		</div>
-
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
