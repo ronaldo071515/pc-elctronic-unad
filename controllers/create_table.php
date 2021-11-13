@@ -6,9 +6,11 @@
     $flag_table_created = false;
     opendb();
     $query = "CREATE TABLE bdunad16.tabla16(
-                    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                    field1 VARCHAR(15) NOT NULL,
-                    field2 VARCHAR(15) NOT NULL
+                    codigo INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                    nombre VARCHAR(40) NOT NULL,
+                    marca VARCHAR(40) NOT NULL,
+                    precio FLOAT NOT NULL,
+                    cantidad FLOAT NOT NULL
                 )";
     if ($link !== false && mysqli_query($link, $query)) {
         $flag_table_created = true;
