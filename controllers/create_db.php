@@ -1,21 +1,24 @@
 
 <?php
+    include("../includes/utilities/debugging.php");
+    require_once("/../connect/connect.php");
 
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
-
-    include("../connect/connect.php");
-
-    $query = "CREATE DATABASE IF NOT EXISTS bdunad30112716";
-    if (mysqli_query($link, $query)) {
-        echo("<script>
-            alert('Base de datos creada exitosamente');
-            window.location='../index.php';
-        </script>");
+    $flag_db_created = false;
+    opendb();
+    $query = "CREATE DATABASE IF NOT EXISTS bdunad16";
+    if ($link !== false && mysqli_query($link, $query)) {
+        $flag_db_created = true;
+        $debugger->out("Base de datos creada exitosamente");
     } else {   
-        echo("Error al ejecutar consulta " . mysqli_error($link));
+        $flag_db_created = false;
+        $debugger->out("Error al ejecutar consulta " . mysqli_error($link));
     }
+    closedb();
 
-    mysqli_close($link);
+    if($flag_db_created){
+        //ACCIONES A REALIZAR DESPUÉS DE CREAR LA BASE DE DATOS
+    }else{
+        //ACCIONES A REALIZAR EN CASO DE FALLAR LA CREACIÓN DE LA BASE DE DATOS
+    }
 
 ?>
