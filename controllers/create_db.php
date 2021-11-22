@@ -1,7 +1,7 @@
 
 <?php
-    include("../includes/utilities/debugging.php");
-    require_once("/../connect/connect.php");
+    require_once("../includes/utilities/debugging.php");
+    require_once("../connect/connect.php");
 
     $flag_db_created = false;
     opendb();

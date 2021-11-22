@@ -1,3 +1,5 @@
+<?php require("../../includes/utilities/debugging.php");?>
+<?php require("../../connect/connect.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +14,7 @@
 </head>
 <body class="fondo">
 
-	<nav class="navbar navbar-dark bg-dark justify-content-end">
+<nav class="navbar navbar-dark bg-dark justify-content-end">
     <div class="container-fluid">
         <a class="navbar-brand" href="../../index.php">PC'S ELECTRONICS</a>
         <ul class="nav">
@@ -45,13 +47,13 @@
 		    </li>
 	    </ul>
     </div>
-	</nav>
+</nav>
 	<div class="container mt-5">
 		<div class="card bg-light shadow-lg">
 			<div class="card-body">
 				<h5 class="card-title mb-2 text-center">Registro Producto</h5>
 				<hr>
-				<form id="">
+				<form action="../../controllers/create_product.php" method="POST">
 					<div class="row">
 						<div class="col-6">
 							<div class="mb-3">
@@ -85,7 +87,7 @@
 						</div>
 					</div>
 					<div class="d-grid gap-2">
-						<input class="btn btn-outline-success btn-block" type="button" value="Registrar Producto" id="" name="">
+						<input class="btn btn-outline-success btn-block" type="submit" value="Registrar Producto" id="btnSave" name="btnSave">
 					</div>
 				</form>
 			</div>
@@ -107,13 +109,21 @@
 							</tr>
 						</thead>
 						<tbody>
+							<?php
+								opendb();
+								$query = "SELECT * FROM bdunad16.tabla16";
+								$result = mysqli_query($link, $query);
+								while ($row = mysqli_fetch_array($result)) { ?>
 							<tr>
-								<th>001</th>
-								<td>Mause</td>
-								<td>hp</td>
-								<td>$ 30.000</td>
-								<td>100</td>
+								<th><?php echo $row['codigo'] ?></th>
+								<td><?php echo $row['nombre'] ?></td>
+								<td><?php echo $row['marca'] ?></td>
+								<td><?php echo $row['precio'] ?></td>
+								<td><?php echo $row['cantidad'] ?></td>
 							</tr>
+							<?php }
+							closedb();
+      						?>
 						</tbody>
 					</table>
 				</div>

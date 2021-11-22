@@ -1,8 +1,7 @@
 <?php
-    require_once("../includes/utilities/debugging.php");
     $user = "root";
     $host = "localhost";
-    $pass = "12345678";
+    $pass = "1234";
     $link = false;
 
     function opendb(){

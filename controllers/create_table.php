@@ -1,11 +1,11 @@
 
 <?php
-    include("../includes/utilities/debugging.php");
-    require_once("/../connect/connect.php");
+    require_once("../includes/utilities/debugging.php");
+    require_once("../connect/connect.php");
 
     $flag_table_created = false;
     opendb();
-    $query = "CREATE TABLE bdunad16.tabla16(
+    $query = "CREATE TABLE IF NOT EXISTS bdunad16.tabla16(
                     codigo INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                     nombre VARCHAR(40) NOT NULL,
                     marca VARCHAR(40) NOT NULL,

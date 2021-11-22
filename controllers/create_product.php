@@ -1,0 +1,37 @@
+<?php 
+
+    require_once("../includes/utilities/debugging.php");
+    require_once("../connect/connect.php");
+
+    $codigo   = $_POST['codigo'];
+    $nombre   = $_POST['nombre'];
+    $marca    = $_POST['marca'];
+    $precio_compra   = $_POST['precio_compra'];
+    $cantidad = $_POST['cantidad'];
+
+    if( empty($codigo) || empty($nombre) || empty($marca) || empty($precio_compra) || empty($cantidad)) {
+        echo "
+            <script>
+                alert('Llena los campos por favor!');
+            </script>
+        ";
+    } else {
+        opendb();
+
+        $query = "INSERT INTO bdunad16.tabla16 (codigo, nombre, marca, precio, cantidad) VALUES
+        ('$codigo', '$nombre', '$marca', '$precio_compra', '$cantidad')";
+
+        if ($link !== false && mysqli_query($link, $query)) {
+            $flag_table_created = true;
+            $debugger->out("Producto agregado exitosamente.");
+        } else {   
+            $flag_table_created = false;
+            $debugger->out("No se pudo insertar el producto " . mysqli_error($link).".");
+        }
+        closedb();
+        header("Location:../pages/inventario/crear-producto.php");
+
+    }
+
+
+?>
