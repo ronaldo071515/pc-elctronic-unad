@@ -1,3 +1,5 @@
+<?php require("../../includes/utilities/debugging.php");?>
+<?php require("../../connect/connect.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +14,7 @@
 </head>
 <body class="fondo">
 
-	<nav class="navbar navbar-dark bg-dark justify-content-end">
+<nav class="navbar navbar-dark bg-dark justify-content-end">
     <div class="container-fluid">
         <a class="navbar-brand" href="../../index.php">PC'S ELECTRONICS</a>
         <ul class="nav">
@@ -45,7 +47,7 @@
 		    </li>
 	    </ul>
     </div>
-	</nav>
+</nav>
 
 	<div class="container mt-5">
 		<div class="row">
