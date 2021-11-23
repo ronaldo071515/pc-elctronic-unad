@@ -24,8 +24,7 @@
             $debugger->out("Query preparado correctamente");
 			mysqli_stmt_bind_param($preparedstatement, "sssdd", $codigo, $nombre, $marca, $precio_compra, $cantidad);
             $debugger->out("Parámetros ligados");
-		}
-		
+		}		
 
         if ($link !== false && mysqli_stmt_execute($preparedstatement)) {
             $flag_table_created = true;
