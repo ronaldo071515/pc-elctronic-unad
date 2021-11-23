@@ -56,13 +56,13 @@
 					<h5 class="card-title mt-3 text-center">Buscar Producto</h5>
 					<hr>
 					<div class="card-body">
-						<form id="buscar-producto" name="buscar-producto" action="#">
+						<form>
 							<div class="mb-3">
 								<label for="codio-producto" class="form-label">Código Producto</label>
-								<input type="number" class="form-control" name="codio-producto" min="0" id="codio-producto">
+								<input type="number" class="form-control" name="codigo" min="0" id="codigo">
 							</div>
 							<div class="d-grid gap-2">
-								<input class="btn btn-outline-success btn-block" type="button" value="Buscar Producto" id="" name="">
+								<button class="btn btn-outline-success">Buscar Producto</button>
 							</div>
 						</form>
 					</div>
@@ -82,21 +82,33 @@
 							</tr>
 						</thead>
 						<tbody>
+						<?php
+							error_reporting(0);
+							opendb();
+							$codigo = $_GET['codigo'];
+							$query = "SELECT * FROM bdunad16.tabla16 WHERE codigo=$codigo";
+							$result = mysqli_query($link, $query);
+							while ($row = mysqli_fetch_array($result)) { ?>
 							<tr>
-								<th>001</th>
-								<td>Mause</td>
-								<td>hp</td>
-								<td>$ 30.000</td>
-								<td>100</td>
+								<th><?php echo $row['codigo'] ?></th>
+								<td><?php echo $row['nombre'] ?></td>
+								<td><?php echo $row['marca'] ?></td>
+								<td><?php echo $row['precio'] ?></td>
+								<td><?php echo $row['cantidad'] ?></td>
 								<td>
-									<a class="btn btn-outline-primary" href="actualizar-producto.php">
+									<a class="btn btn-outline-primary"
+									   href="actualizar-producto.php?id=<?php echo $row['codigo']?>">
 										<i class="far fa-edit"></i>
 									</a>
-									<a class="btn btn-outline-danger" href="eliminar-producto.php">
+									<a class="btn btn-outline-danger"
+									   href="../../controllers/delete_product.php?codigo=<?php echo $row['codigo']?>">
 										<i class="far fa-trash-alt"></i>
 									</a>
 								</td>
 							</tr>
+							<?php }
+							closedb();
+      						?>
 						</tbody>
 					</table>
 				</div>
