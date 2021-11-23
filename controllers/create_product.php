@@ -17,11 +17,14 @@
         ";
     } else {
         opendb();
+		$preparedquery = "INSERT INTO bdunad16.tabla16 (codigo, nombre, marca, precio, cantidad) VALUES (?, ?, ?, ?, ?)";
+		$preparedstatement = mysqli_stmt_init($link);
+        
+		if(mysqli_stmt_prepare($preparedstatement, $preparedquery)){
+			mysqli_stmt_bind_param($preparedstatement, "sssdd", $codigo, $nombre, $marca, $precio_compra, $cantidad);
+		}		
 
-        $query = "INSERT INTO bdunad16.tabla16 (codigo, nombre, marca, precio, cantidad) VALUES
-        ('$codigo', '$nombre', '$marca', '$precio_compra', '$cantidad')";
-
-        if ($link !== false && mysqli_query($link, $query)) {
+        if ($link !== false && mysqli_stmt_execute($preparedstatement)) {
             $flag_table_created = true;
             $debugger->out("Producto agregado exitosamente.");
         } else {   
@@ -32,6 +35,4 @@
         header("Location:../pages/inventario/crear-producto.php");
 
     }
-
-
 ?>
