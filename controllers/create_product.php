@@ -21,9 +21,7 @@
 		$preparedstatement = mysqli_stmt_init($link);
         
 		if(mysqli_stmt_prepare($preparedstatement, $preparedquery)){
-            $debugger->out("Query preparado correctamente");
 			mysqli_stmt_bind_param($preparedstatement, "sssdd", $codigo, $nombre, $marca, $precio_compra, $cantidad);
-            $debugger->out("Parámetros ligados");
 		}		
 
         if ($link !== false && mysqli_stmt_execute($preparedstatement)) {
