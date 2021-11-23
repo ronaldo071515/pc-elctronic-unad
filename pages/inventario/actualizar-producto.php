@@ -1,3 +1,49 @@
+<?php require("../../includes/utilities/debugging.php");?>
+<?php require("../../connect/connect.php");?>
+<?php
+	error_reporting(0);
+	opendb();
+	if (isset($_GET['codigo'])) {
+		$codigo = $_GET['codigo'];
+		$query = "SELECT * FROM bdunad16.tabla16 WHERE codigo=$codigo";
+		$result = mysqli_query($link, $query);
+		if ( mysqli_num_rows($result) == 1 ) {
+			$row = mysqli_fetch_array($result);
+			$codigo = $row['codigo'];
+			$nombre = $row['nombre'];
+			$marca = $row['marca'];
+			$precio = $row['precio'];
+			$cantidad = $row['cantidad'];
+		}
+	}
+	if (isset($_POST['btnUpdate'])) {
+		$n = $_POST['nombre'];
+		$m = $_POST['marca'];
+		$p = $_POST['precio'];
+		$c = $_POST['cantidad'];
+		
+		var_dump($c);
+
+		$query = "UPDATE bdunad16.tabla16 SET nombre='$n', marca='$m', precio=$p, cantidad=$c WHERE codigo=$codigo";
+		$result = mysqli_query($link, $query);
+		if (!$result) {
+			die ("
+				<script>
+					alert('Ocurrio un error en la actualización del producto');
+				</script>
+			");
+		} else {
+			die ("
+				<script>
+					alert('Producto actualizado satisfactoriamente');
+				</script>
+			");
+		}
+		
+	}
+	closedb();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +58,7 @@
 </head>
 <body class="fondo">
 
-	<nav class="navbar navbar-dark bg-dark justify-content-end">
+<nav class="navbar navbar-dark bg-dark justify-content-end">
     <div class="container-fluid">
         <a class="navbar-brand" href="../../index.php">PC'S ELECTRONICS</a>
         <ul class="nav">
@@ -45,55 +91,53 @@
 		    </li>
 	    </ul>
     </div>
-	</nav>
+</nav>
 
-	<div class="container mt-5">
-		<form>
-			<div class="card bg-light shadow-lg">
-				<div class="card-body">
-					<h5 class="card-title mb-2 text-center">Actualizar Producto</h5>
-					<hr>
-					<form id="">
-						<div class="row">
-							<div class="col-6">
-								<div class="mb-3">
-									<label for="codigo" class="form-label">Código Producto</label>
-									<input type="number" class="form-control" name="codigo" id="codigo" aria-required="true">
-								</div>
-							</div>
-							<div class="col-6">
-								<div class="mb-3">
-									<label for="nombre" class="form-label">Nombre Producto</label>
-									<input type="text" class="form-control" name="nombre" id="nombre" aria-required="true">
-								</div>
-							</div>
-							<div class="col-4">
-								<div class="mb-3">
-									<label for="marca" class="form-label">Marca del Producto</label>
-									<input type="text" class="form-control" name="marca" id="marca">
-								</div>
-							</div>
-							<div class="col-4">
-								<div class="mb-3">
-									<label for="precio_compra" class="form-label">Precio de Compra</label>
-									<input type="number" class="form-control" name="precio_compra" id="precio_compra">
-								</div>
-							</div>
-							<div class="col-4">
-								<div class="mb-3">
-									<label for="cantidad" class="form-label">Cantidad Comprada</label>
-									<input type="number" class="form-control" name="cantidad" id="cantidad">
-								</div>
-							</div>
+<div class="container mt-5">
+	<div class="card bg-light shadow-lg">
+		<div class="card-body">
+			<h5 class="card-title mb-2 text-center">Actualizar Producto</h5>
+			<hr>
+			<form action="actualizar-producto.php?codigo=<?php echo $_GET['codigo']?>" method="POST">
+				<div class="row">
+					<div class="col-6">
+						<div class="mb-3">
+							<label for="codigo" class="form-label">Código Producto</label>
+							<input type="number" class="form-control" name="codigo" id="codigo" value="<?php echo $codigo; ?>" aria-required="true" disabled>
 						</div>
-						<div class="d-grid gap-2">
-							<input class="btn btn-outline-primary btn-block" type="button" value="Modificar Producto" id="" name="">
+					</div>
+					<div class="col-6">
+						<div class="mb-3">
+							<label for="nombre" class="form-label">Nombre Producto</label>
+							<input type="text" class="form-control" name="nombre" id="nombre" value="<?php echo $nombre; ?>" aria-required="true">
 						</div>
-					</form>
+					</div>
+					<div class="col-4">
+						<div class="mb-3">
+							<label for="marca" class="form-label">Marca del Producto</label>
+							<input type="text" class="form-control" name="marca" id="marca" value="<?php echo $marca; ?>">
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="mb-3">
+							<label for="precio" class="form-label">Precio de Compra</label>
+							<input type="number" class="form-control" name="precio" id="precio" value="<?php echo $precio; ?>">
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="mb-3">
+							<label for="cantidad" class="form-label">Cantidad Comprada</label>
+							<input type="number" class="form-control" name="cantidad" id="cantidad" value="<?php echo $cantidad; ?>">
+						</div>
+					</div>
 				</div>
-			</div>
-		</form>
+				<div class="d-grid gap-2">
+					<input class="btn btn-outline-primary btn-block" type="submit" value="Modificar Producto" name="btnUpdate">
+				</div>
+			</form>
+		</div>
 	</div>
+</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>

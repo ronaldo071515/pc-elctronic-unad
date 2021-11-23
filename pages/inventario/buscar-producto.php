@@ -97,7 +97,7 @@
 								<td><?php echo $row['cantidad'] ?></td>
 								<td>
 									<a class="btn btn-outline-primary"
-									   href="actualizar-producto.php?id=<?php echo $row['codigo']?>">
+									   href="actualizar-producto.php?codigo=<?php echo $row['codigo']?>">
 										<i class="far fa-edit"></i>
 									</a>
 									<a class="btn btn-outline-danger"
