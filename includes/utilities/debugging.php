@@ -1,7 +1,7 @@
 <?php
 
 //Apagar la salida del debugger
-$DEBUG_MODE = TRUE;
+$DEBUG_MODE = FALSE;
 
 /* Clase para debugging */
 class Debugger{
@@ -23,12 +23,17 @@ class Debugger{
 
 $debugger = new Debugger();
 
-if($DEBUG_MODE){
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
-}else {
-    error_reporting(~E_ALL);
-    ini_set('display_errors', '0');
+function printdebug($DEBUG_MODE){
+    if($DEBUG_MODE){
+        error_reporting(E_ALL);
+        ini_set('display_errors', '1');
+    }else {
+        error_reporting(~E_ALL);
+        ini_set('display_errors', '0');
+    }
 }
+
+printdebug($DEBUG_MODE);
+
 
 ?>
