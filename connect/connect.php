@@ -8,6 +8,7 @@
         if($GLOBALS['link'] != false) return;
 
         $GLOBALS['link'] = mysqli_connect($GLOBALS['host'], $GLOBALS['user'], $GLOBALS['pass']);
+        mysqli_set_charset($GLOBALS['link'], "utf8");
         if (!$GLOBALS['link']) {
             $GLOBALS['debugger']->out("Error al conectar a la base de datos: " . mysqli_connect_error() . ".");  
         }else {
