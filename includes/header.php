@@ -36,10 +36,10 @@
 			</li>
 		    <li class="nav-item dropdown">
 		      <a class="nav-link text-white dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown">Administrador</a>
-			  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="admin-menu">
 				  <li><a class="dropdown-item" href="controllers/create_db.php">Crear BD</a></li>
 				  <li><a class="dropdown-item" href="controllers/create_table.php" >Crear Tabla</a></li>
-				  <li><a class="dropdown-item">Generar Reporte PDF</a></li>
+				  <li><a class="dropdown-item" href="controllers/report.php">Generar Reporte PDF</a></li>
 				  <li><a class="dropdown-item">Generar Backup</a></li>
 			  </ul>
 		    </li>
