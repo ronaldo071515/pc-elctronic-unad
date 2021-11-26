@@ -24,7 +24,7 @@
     $report->SetFont('Arial','B',10);
 
     opendb();
-    $query = 'SELECT * FROM personas';
+    $query = 'SELECT * FROM bdunad';
     $result = mysqli_query($link,$query);
 
     if (mysqli_num_rows($result) > 0) {
