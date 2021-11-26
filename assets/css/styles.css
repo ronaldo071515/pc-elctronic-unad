@@ -5,15 +5,19 @@ body {
 }
 
 img {
-	max-width: 100%;
-	display: block;
+    max-width: 100%;
+    display: block;
 }
 
 .fondo {
-	background-image: url(../img/fondo.png);
+    background-image: url(../img/fondo.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
-	background-color: #ffffff;
+    background-color: #ffffff;
+}
+
+#admin-menu.dropdown-menu {
+    transform: translateX(-2em);
 }
