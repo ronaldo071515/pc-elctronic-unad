@@ -9,6 +9,11 @@
     if ($link !== false && mysqli_query($link, $query)) {
         $flag_db_created = true;
         $debugger->out("Base de datos creada exitosamente");
+        die ("
+        <script> 
+            alert('Base de datos creada exitosamente');
+            window.location.href='../index.php';
+        </script>");
     } else {   
         $flag_db_created = false;
         $debugger->out("Error al ejecutar consulta " . mysqli_error($link));

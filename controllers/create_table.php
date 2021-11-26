@@ -15,6 +15,11 @@
     if ($link !== false && mysqli_query($link, $query)) {
         $flag_table_created = true;
         $debugger->out("Tabla creada exitosamente.");
+        die ("
+        <script> 
+            alert('Tabla creada exitosamente.');
+            window.location.href='../index.php';
+        </script>");
     } else {   
         $flag_table_created = false;
         $debugger->out("No se pudo crear la tabla: " . mysqli_error($link).".");

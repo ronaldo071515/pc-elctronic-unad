@@ -21,8 +21,6 @@
 		$m = $_POST['marca'];
 		$p = $_POST['precio'];
 		$c = $_POST['cantidad'];
-		
-		var_dump($c);
 
 		$query = "UPDATE bdunad16.tabla16 SET nombre='$n', marca='$m', precio=$p, cantidad=$c WHERE codigo=$codigo";
 		$result = mysqli_query($link, $query);
@@ -36,6 +34,7 @@
 			die ("
 				<script>
 					alert('Producto actualizado satisfactoriamente');
+					window.location.href = '../inventario/crear-producto.php';
 				</script>
 			");
 		}
