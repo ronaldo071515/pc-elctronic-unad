@@ -1,8 +1,10 @@
 <?php
-    $user = "root";
+    $user = "testuser";
     $host = "localhost";
-    $pass = "1234";
+    $pass = "12345678";
+    $dbname = "bdunad16";
     $link = false;
+    
 
     function opendb(){
         if($GLOBALS['link'] != false) return;

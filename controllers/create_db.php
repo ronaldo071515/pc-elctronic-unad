@@ -5,7 +5,7 @@
 
     $flag_db_created = false;
     opendb();
-    $query = "CREATE DATABASE IF NOT EXISTS bdunad16 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin";
+    $query = "CREATE DATABASE IF NOT EXISTS $dbname DEFAULT CHARACTER SET utf8 COLLATE utf8_bin";
     if ($link !== false && mysqli_query($link, $query)) {
         $flag_db_created = true;
         $debugger->out("Base de datos creada exitosamente");
