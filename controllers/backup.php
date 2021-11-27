@@ -7,10 +7,12 @@ opendb();
 
 $namedb = 'bdunad16';
 
-$mysqldump = 'mysqldump';
+//Funciona con XAMPP
+$mysqldump = getcwd().'/../../../mysql/bin/mysqldump';
 
 $backup_file = '"../backups/"'.$namedb. "-" .date("Y-m-d-H-i-s"). ".sql";
-system("$mysqldump --no-defaults -u$user -p$pass $namedb > $backup_file",$output);
+system("$mysqldump --no-defaults -u$user -p$pass $namedb > $backup_file", $output);
+
 switch($output){
 case 0:
         echo 'La base de datos <b>' .$dbname .'</b> se ha almacenado correctamente en la siguiente ruta '.getcwd().'/' .$backup_file .'</b>';
