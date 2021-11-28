@@ -5,8 +5,6 @@
 
     if ($_GET['codigo']) {
         $codigo = $_GET['codigo'];
-
-        $query = "DELETE FROM bdunad16.tabla16 WHERE codigo=$codigo";
         
         $preparedquery = "DELETE FROM bdunad16.tabla16 WHERE codigo=?";
 		$preparedstatement = mysqli_stmt_init($link);
