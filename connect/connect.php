@@ -1,7 +1,7 @@
 <?php
     $user = "root";
     $host = "localhost";
-    $pass = "1234";
+    $pass = "12345678";
     $dbname = "bdunad16";
     $link = false;
     

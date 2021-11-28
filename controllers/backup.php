@@ -11,7 +11,7 @@ $namedb = 'bdunad16';
 $mysqldump = getcwd().'/../../../mysql/bin/mysqldump';
 
 $backup_file = '"../backups/"'.$namedb. "-" .date("Y-m-d-H-i-s"). ".sql";
-system("$mysqldump --no-defaults -u$user -p$pass $namedb > $backup_file", $output);
+system("$mysqldump --no-defaults -u$user -p$pass --databases $namedb > $backup_file", $output);
 
 switch($output){
 case 0:
